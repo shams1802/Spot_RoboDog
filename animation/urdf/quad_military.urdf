@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<robot name="quadruped">
+
+  <!-- right is +x, top is +y, back is +z, -->
+
+  <!-- Base body link -->
+  <link name="body">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/body_with_motor_v1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="body_color">
+        <color rgba="0.4 0.5 0.3 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- back right coupler -->
+  <link name="back_right_coupler">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/coupler_v1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="coupler_color">
+        <color rgba="0.8 0.7 0.5 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- back left coupler -->
+  <link name="back_left_coupler">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/coupler_v1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="coupler_color">
+        <color rgba="0.8 0.7 0.5 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- front left coupler -->
+  <link name="front_left_coupler">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/coupler_v1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="coupler_color">
+        <color rgba="0.8 0.7 0.5 1.0"/>
+      </material>
+    </visual>
+  </link>
+  
+  <!-- front right coupler -->
+  <link name="front_right_coupler">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/coupler_v1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="coupler_color">
+        <color rgba="0.8 0.7 0.5 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- back right upper leg -->
+  <link name="back_right_upper_leg">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/leg_upper_with_motor_v1.5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="leg_color">
+        <color rgba="0.2 0.4 0.2 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- back left upper leg -->
+  <link name="back_left_upper_leg">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/leg_upper_with_motor_v1.5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="leg_color">
+        <color rgba="0.2 0.4 0.2 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- front left upper leg -->
+  <link name="front_left_upper_leg">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/leg_upper_with_motor_v1.5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="leg_color">
+        <color rgba="0.2 0.4 0.2 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- front right upper leg -->
+  <link name="front_right_upper_leg">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/leg_upper_with_motor_v1.5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="leg_color">
+        <color rgba="0.2 0.4 0.2 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- back right lower leg -->
+  <link name="back_right_lower_leg">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/leg_lower_v3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="lower_leg_color">
+        <color rgba="0.1 0.1 0.1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- back left lower leg -->
+  <link name="back_left_lower_leg">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/leg_lower_v3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="lower_leg_color">
+        <color rgba="0.1 0.1 0.1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- front left lower leg -->
+  <link name="front_left_lower_leg">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/leg_lower_v3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="lower_leg_color">
+        <color rgba="0.1 0.1 0.1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- front right lower leg -->
+  <link name="front_right_lower_leg">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/leg_lower_v3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="lower_leg_color">
+        <color rgba="0.1 0.1 0.1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Joint connecting body to back right coupler -->
+  <joint name="back_right_hipX" type="revolute">
+    <parent link="body"/>
+    <child link="back_right_coupler"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 3.14"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="5.0"/>
+  </joint>
+
+  <!-- Joint connecting body to back left coupler -->
+  <joint name="back_left_hipX" type="revolute">
+    <parent link="body"/>
+    <child link="back_left_coupler"/>
+    <origin xyz="0.1083 0.0 0.0" rpy="0 0 0.0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="5.0"/>
+  </joint>
+
+  <!-- Joint connecting body to front left coupler -->
+  <joint name="front_left_hipX" type="revolute">
+    <parent link="body"/>
+    <child link="front_left_coupler"/>
+    <origin xyz="0.1083 -0.0 0.3491" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="5.0"/>
+  </joint>
+
+  <!-- Joint connecting body to front right coupler -->
+  <joint name="front_right_hipX" type="revolute">
+    <parent link="body"/>
+    <child link="front_right_coupler"/>
+    <origin xyz="0.0 -0.0 0.3491" rpy="0 0 3.14"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="5.0"/>
+  </joint>
+
+  <!-- Joint connecting back right coupler to upper leg -->
+  <joint name="back_right_hipY" type="revolute">
+    <parent link="back_right_coupler"/>
+    <child link="back_right_upper_leg"/>
+    <origin xyz="0.077 0.0 -0.077" rpy="0 1.57 3.14"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="5.0"/>
+  </joint>
+
+  <!-- Joint connecting back left coupler to upper leg -->
+  <joint name="back_left_hipY" type="revolute">
+    <parent link="back_left_coupler"/>
+    <child link="back_left_upper_leg"/>
+    <origin xyz="0.077 0.0 -0.077" rpy="0 1.57 0.0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="5.0"/>
+  </joint>
+
+  <!-- Joint connecting front left coupler to upper leg -->
+  <joint name="front_left_hipY" type="revolute">
+    <parent link="front_left_coupler"/>
+    <child link="front_left_upper_leg"/>
+    <origin xyz="0.077 0.0 -0.077" rpy="0 1.57 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="5.0"/>
+  </joint>
+
+  <!-- Joint connecting front right coupler to upper leg -->
+  <joint name="front_right_hipY" type="revolute">
+    <parent link="front_right_coupler"/>
+    <child link="front_right_upper_leg"/>
+    <origin xyz="0.077 0.0 -0.077" rpy="0 1.57 3.14"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="5.0"/>
+  </joint>
+
+  <!-- Joint connecting back right upper leg to lower leg -->
+  <joint name="back_right_knee" type="revolute">
+    <parent link="back_right_upper_leg"/>
+    <child link="back_right_lower_leg"/>
+    <origin xyz="0.203 -0.038 0.0" rpy="0 3.14 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="5.0"/>
+  </joint>
+
+  <!-- Joint connecting back left upper leg to lower leg -->
+  <joint name="back_left_knee" type="revolute">
+    <parent link="back_left_upper_leg"/>
+    <child link="back_left_lower_leg"/>
+    <origin xyz="0.203 -0.038 0.0" rpy="0 3.14 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="5.0"/>
+  </joint>
+
+  <!-- Joint connecting front left upper leg to lower leg -->
+  <joint name="front_left_knee" type="revolute">
+    <parent link="front_left_upper_leg"/>
+    <child link="front_left_lower_leg"/>
+    <origin xyz="0.203 -0.038 0.0" rpy="0 3.14 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="5.0"/>
+  </joint>
+
+  <!-- Joint connecting front right upper leg to lower leg -->
+  <joint name="front_right_knee" type="revolute">
+    <parent link="front_right_upper_leg"/>
+    <child link="front_right_lower_leg"/>
+    <origin xyz="0.203 -0.038 0.0" rpy="0 3.14 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="5.0"/>
+  </joint>
+
+</robot>
